@@ -1,1 +1,1 @@
-# hard disk simulator in python.
+# hard disk simulator.
