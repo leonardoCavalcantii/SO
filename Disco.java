@@ -10,14 +10,17 @@ public class Disco {
     double avgRotation;
     Escalonador escalonador;
     int[] filaBlocos;
+    Braco braco;
 
 
     public Disco(double avgSeek, int rpms) {
         this.avgSeek = avgSeek;
+        // TODO: Ajeitar isso
         this.avgRotation = rpms / TAMANHO_TRILHA;
         this.trilhas = new int[NUM_TRILHAS][TAMANHO_TRILHA];
         this.filaBlocos = new int[TAMANHO_FILA];
-        this.escalonador = new SSTF();
+        this.escalonador = new FCFS();
+        this.braco = new Braco();
     }
 
     public void SetEscalonador(Escalonador escalonador) {
@@ -33,9 +36,11 @@ public class Disco {
         int timeTotal = 0;
         for (int i = 0; i < this.filaBlocos.length; i++) {
             int bloco = filaBlocos[i];
-            int deslocamentoVertical = bloco / TAMANHO_TRILHA;
-            int deslocamentoHorizontal = bloco % TAMANHO_TRILHA;
-            timeTotal += deslocamentoVertical * avgSeek + deslocamentoHorizontal * avgRotation;
+            int deslocamentoVertical = (bloco / TAMANHO_TRILHA) - braco.getPosTrilha();
+            int deslocamentoHorizontal = (bloco % TAMANHO_TRILHA) - braco.getPosBloco();
+            timeTotal += Math.abs(deslocamentoVertical) * avgSeek + Math.abs(deslocamentoHorizontal) * avgRotation;
+            braco.setPosTrilha(braco.getPosTrilha() + deslocamentoVertical);
+            braco.setPosBloco(braco.getPosBloco() + deslocamentoHorizontal);
         }
 
         return timeTotal;
