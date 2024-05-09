@@ -1,1 +1,1 @@
-# hard disk simulator.
+# Simulador de disco.
