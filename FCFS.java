@@ -1,6 +1,6 @@
 public class FCFS implements Escalonador {
 
-    public int[] run(int[] blocos) {
+    public Integer[] run(Integer[] blocos) {
         return blocos;
     }
 

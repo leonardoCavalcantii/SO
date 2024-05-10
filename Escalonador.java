@@ -1,5 +1,5 @@
 public interface Escalonador {
 
-    public int[] run(int[] blocos);
+    public Integer[] run(Integer[] blocos);
 
 }

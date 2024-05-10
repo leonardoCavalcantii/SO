@@ -14,7 +14,7 @@ public class Disco {
     double avgSeek;
     double avgRotation;
     Escalonador escalonador;
-    int[] filaBlocos;
+    Integer[] filaBlocos;
     Braco braco;
     Queue<Agendamento> agendamentos;
 
@@ -25,7 +25,7 @@ public class Disco {
         // this.avgRotation = rpms / TAMANHO_TRILHA;
         this.avgRotation = 0.72; // colocar esse valor fixo por enquanto: 0.72ms
         this.trilhas = new int[NUM_TRILHAS][TAMANHO_TRILHA];
-        this.filaBlocos = new int[TAMANHO_FILA];
+        this.filaBlocos = new Integer[TAMANHO_FILA];
         this.escalonador = new FCFS();
         this.braco = new Braco();
         this.agendamentos = new LinkedList<Agendamento>();
@@ -40,7 +40,7 @@ public class Disco {
         this.agendamentos = new LinkedList<Agendamento>(agendamentos);
     }
 
-    public void write(int[] blocos) {
+    public void write(Integer[] blocos) {
         this.filaBlocos = Arrays.copyOf(blocos, blocos.length);
     }
 
@@ -67,8 +67,8 @@ public class Disco {
         return timeTotal;
     }
 
-    private int[] addBloco(int inicio, int[] fila, int novoBloco) {
-        int[] novaFila = new int[fila.length + 1 - inicio];
+    private Integer[] addBloco(int inicio, Integer[] fila, int novoBloco) {
+        Integer[] novaFila = new Integer[fila.length + 1 - inicio];
         for(int i = 0; i < novaFila.length - 1; i++) {
             novaFila[i] = fila[inicio++];
         } 
