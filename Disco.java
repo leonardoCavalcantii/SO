@@ -10,7 +10,6 @@ public class Disco {
     final static int TAMANHO_TRILHA = NUM_BLOCOS / NUM_TRILHAS;
     final static int TAMANHO_FILA = 20;
 
-    int[][] trilhas;
     double avgSeek;
     double avgRotation;
     Escalonador escalonador;
@@ -24,7 +23,6 @@ public class Disco {
         // TODO: Ajeitar isso
         // this.avgRotation = rpms / TAMANHO_TRILHA;
         this.avgRotation = 0.72; // colocar esse valor fixo por enquanto: 0.72ms
-        this.trilhas = new int[NUM_TRILHAS][TAMANHO_TRILHA];
         this.filaBlocos = new Integer[TAMANHO_FILA];
         this.escalonador = new FCFS();
         this.braco = new Braco();
