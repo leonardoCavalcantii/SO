@@ -7,7 +7,7 @@ blocos e os dados do disco, inclusive o escalonador.
 
 ## Compilar arquivos
 
-./setup.sh
+./make.sh
 
 
 ## Rodar o simulador
