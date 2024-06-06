@@ -1,4 +1,5 @@
 # Simulador de disco.
+Simula o funcionamento de um disco e compara as politicas de escalonamento dos algoritimos FCFS, SPTF e SSTF.
 
 ## Definir parâmetros
 
